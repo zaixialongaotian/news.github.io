@@ -1,0 +1,1142 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head>
+	<title>博客功能扩展</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="songci">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+
+	<body>	
+		<style type="text/css">
+	#preloader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100%;
+		width: 100%;
+		background-color: #f5f5f5;
+		z-index: 1000;
+	}
+	
+	.pre-container {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		bottom: auto;
+		right: auto;
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+		text-align: center;
+	}
+	
+	.spinner {
+		width: 40px;
+		height: 40px;
+		position: relative;
+		margin: 100px auto;
+	}
+	
+	.double-bounce1,
+	.double-bounce2 {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background-color: #333;
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		left: 0;
+		-webkit-animation: bounce 2.0s infinite ease-in-out;
+		animation: bounce 2.0s infinite ease-in-out;
+	}
+	
+	.double-bounce2 {
+		-webkit-animation-delay: -1.0s;
+		animation-delay: -1.0s;
+	}
+	
+	@-webkit-keyframes bounce {
+		0%,
+		100% {
+			-webkit-transform: scale(0.0)
+		}
+		50% {
+			-webkit-transform: scale(1.0)
+		}
+	}
+	
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: scale(0.0);
+			-webkit-transform: scale(0.0);
+		}
+		50% {
+			transform: scale(1.0);
+			-webkit-transform: scale(1.0);
+		}
+	}
+	
+	
+	
+	.cd-fixed-bg {
+		position: relative;
+		z-index: 1;
+	}
+	
+	@media only screen and (min-width: 1170px) {
+		.cd-fixed-bg {
+			background-attachment: fixed;
+		}
+	}
+	
+	.cd-scrolling-bg {
+		position: relative;
+		z-index: 2;
+	}
+</style>
+<!--Preloader-->
+<!--
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+-->
+<div id="preloader">
+	<div class="pre-container">
+		<div class="spinner">
+			<div class="double-bounce1"></div>
+			<div class="double-bounce2"></div>
+		</div>
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header class="cd-fixed-bg cd-bg-1" id="header-bg-2">
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>当前文章&nbsp;:&nbsp;《博客功能扩展》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		10/17/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://annie-header-bg-1253939655.cos.ap-beijing.myqcloud.com/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/poem">
+           		<a href="/poem" title="词句">词句</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main class="cd-scrolling-bg cd-color-2"> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/07/30/博客功能扩展/" itemprop="url">		
+			博客功能扩展		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/07/30/博客功能扩展/" itemprop="url">
+	<time datetime="2018-07-29T16:18:51.000Z" itemprop="datePublished">
+  		2018-07-30
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#开发实践" title="开发实践" rel="5">开发实践</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p><strong>任务清单</strong>（<code>todo list</code>）</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 归档页</li>
+<li style="list-style: none"><input type="checkbox" checked> 分类页</li>
+<li style="list-style: none"><input type="checkbox" checked> 标签页</li>
+<li style="list-style: none"><input type="checkbox" checked> 相册页 <code>2018年7月30日</code></li>
+<li style="list-style: none"><input type="checkbox" checked> 搜索页 <code>2018年7月31日</code></li>
+<li style="list-style: none"><input type="checkbox"> 时间页</li>
+<li style="list-style: none"><input type="checkbox" checked> 安装<code>hexo-related-popular-posts</code>插件 <code>2018年8月1日</code></li>
+<li style="list-style: none"><input type="checkbox"> 文章加密访问、前端加密类<code>hexo-encrypt</code>、<code>hexo-blog-encrypt</code>（废弃的API，<u>放弃折腾</u>）</li>
+<li style="list-style: none"><input type="checkbox"> hexo-pdf插件：pdf预览</li>
+<li style="list-style: none"><input type="checkbox"> 返回顶部 <code>2018年8月3日</code></li>
+<li style="list-style: none"><input type="checkbox"> 学习使用 F12 开发人员工具调试HTML 和 CSS</li>
+</ul>
+<p><strong>归档页</strong></p>
+<pre><code class="html"> &lt;!--&lt;%- list_posts({order: -1, amount: 1000}) %&gt;--&gt;
+
+&lt;!-- 完全显示 --&gt;
+
+&lt;% var last; %&gt;
+&lt;% site.posts.sort(&#39;-date&#39;).map(function(post, i){ %&gt;
+    &lt;% var year = post.date.year(); %&gt;
+    &lt;% if (last != year){ %&gt;
+
+        &lt;% if (last != null){ %&gt;
+            &lt;/div&gt;&lt;/section&gt;
+        &lt;% } %&gt;
+
+        &lt;% last = year; %&gt;
+        &lt;section&gt;
+        &lt;div&gt;
+            &lt;a href=&quot;&lt;%- url_for(config.archive_dir + &#39;/&#39; + year) %&gt;&quot; class=&quot;archive-year&quot;&gt;
+                &lt;%= year %&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;archives&quot;&gt;
+    &lt;% } %&gt;
+    &lt;%- partial(&#39;_partial/archive-post&#39;, {post: post, even: i % 2 == 0, index: true}) %&gt;
+&lt;% }) %&gt;
+
+&lt;% if (site.posts.length){ %&gt;
+        &lt;/div&gt;&lt;/section&gt;
+&lt;% } %&gt;
+</code></pre>
+<p><strong>标签页</strong></p>
+<p>标签云，加载效果不理想。<a href="http://www.netcan666.com/2015/12/15/Hexo%E4%B8%AA%E6%80%A7%E5%8C%96%E7%90%83%E5%BD%A2%E6%A0%87%E7%AD%BE%E4%BA%91/#7s8d6f87#7s8d6f87" target="_blank" rel="noopener">参考博客</a></p>
+<pre><code class="html">&lt;%- js([&#39;js/tagcanvas.js&#39;])%&gt;
+
+&lt;div class=&quot;tags&quot; id=&quot;myTags&quot;&gt;
+    &lt;canvas width=&quot;700px&quot; height=&quot;400&quot; id=&quot;my3DTags&quot;&gt;
+        &lt;p&gt;Anything in here will be replaced on browsers that support the canvas element&lt;/p&gt;
+    &lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;tags&quot; id=&quot;tags&quot;&gt;
+&lt;ul&gt;
+&lt;%- tagcloud({
+    min_font: 16,
+    max_font: 35,
+    amount: 999,
+    color: true,
+    start_color: &#39;black&#39;,
+    end_color: &#39;red&#39;,
+}) %&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    window.onload = function() {
+    try {
+        TagCanvas.Start(&#39;my3DTags&#39;,&#39;tags&#39;,{
+        textFont: &#39;Georgia,Optima&#39;,
+        textColour: null,
+        outlineColour: &#39;#ff00ff&#39;,
+        weight: true,
+        reverse: true,
+        depth: 0.8,
+        maxSpeed: 0.05,
+        bgRadius: 1,
+        freezeDecel: true
+        });
+    } catch(e) {
+        // something went wrong, hide the canvas container
+        document.getElementById(&#39;myTags&#39;).style.display = &#39;none&#39;;
+    }
+    };
+&lt;/script&gt;
+</code></pre>
+<center><em>实现效果</em></center>
+
+<video id="video" controls preload="none"><br><br>​    <source id="mp4" src="https://1024-1253939655.cos.ap-beijing.myqcloud.com/hexo_poem/tag.mp4"><br><br>​     <p>Your user agent does not support the HTML5 Video element.</p><br><br></video>
+
+<p><strong>搜索页</strong></p>
+<p><a href="http://www.hahack.com/codes/local-search-engine-for-hexo/" target="_blank" rel="noopener">参考博文</a></p>
+<p><strong>返回顶部</strong></p>
+<p>三个步骤：添加ejs文件、添加js文件、相应位置引入（<a href="http://www.lanrentuku.com/gif/a/top.html" target="_blank" rel="noopener">返回顶部图标下载</a>）</p>
+<ul>
+<li>添加ejs文价</li>
+</ul>
+<pre><code class="html">&lt;!--totop.ejs--&gt;
+# totop{
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    cursor: pointer;
+}
+&lt;/style&gt;
+
+&lt;div id=&quot;totop&quot;&gt;
+  &lt;a href=&quot;javascript:;&quot;&gt; &lt;img src=&quot;&lt;%- config.root %&gt;img/totop.png&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>添加js文件</li>
+</ul>
+<pre><code class="js">//totop.js
+(function($) {
+    var upperLimit = 1000;
+
+    // Our scroll link element
+    var scrollElem = $(&#39;#totop&#39;);
+
+    // Scroll to top speed
+    var scrollSpeed = 500;
+    scrollElem.hide();
+    $(window).scroll(function () {
+        var scrollTop = $(document).scrollTop();
+        if ( scrollTop &gt; upperLimit ) {
+            $(scrollElem).stop().fadeTo(300, 1); 
+        }else{
+            $(scrollElem).stop().fadeTo(300, 0); 
+        }
+    });
+    $(scrollElem).click(function(){
+        $(&#39;html, body&#39;).animate({scrollTop:0}, scrollSpeed); return false;
+    });
+})(jQuery);
+</code></pre>
+<ul>
+<li>相应位置引入</li>
+</ul>
+<pre><code class="html"> &lt;%- partial(&#39;_custom/totop&#39;) %&gt;
+ &lt;script src=&quot;&lt;%- config.root %&gt;js/totop.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>layout.ejs文件中引入（其他类似）</p>
+<ul>
+<li>相关问题</li>
+</ul>
+<p>返回顶部的速度太慢，修改totop.js文件中的变量即可。</p>
+<pre><code class="js">// Our scroll link element
+//&lt;div id=&quot;totop&quot;&gt;
+//获取锚点
+var scrollElem = $(&#39;#totop&#39;);
+
+// Scroll to top speed
+//滚动速度，值越小越快
+var scrollSpeed = 500;
+</code></pre>
+<p>更多实现方法，见于此<a href="https://www.jb51.net/article/91824.htm" target="_blank" rel="noopener">传送门</a></p>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2018/07/31/That-boy/" title="That boy">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2018/07/26/李白诗选/" title="李白诗选">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment gitalk -->
+			<!-- show gitalk comment -->
+
+  <div id="gitalk-container"></div>
+
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//create gitalk
+	var gitalk = new Gitalk({
+		clientID: 'bf19f33d43d567dce87e',
+		clientSecret: '32f473f6f860a8f82ae10fcfd978c83c0954b93f',
+		//id: window.location.pathname,
+		// id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: md5(location.href.trimEnd('#.*$,\\?.*$,index.html$')),
+		repo: 'annie-gitalk',
+		owner: 'Sariay',
+		admin: 'Sariay',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+
+	</div>
+</div>
+
+<!--
+<style type="text/css">
+	
+pre,
+pre code {
+	white-space: pre-wrap
+}
+
+pre {
+	display: block;
+	padding: 1rem;
+	margin: 1rem 0;
+	word-break: break-all;
+	word-wrap: break-word;
+	color: #555;
+	border: 1px solid #dedede;
+	border-radius: 0
+}
+
+pre code {
+	padding: 0;
+	font-size: inherit;
+	color: inherit;
+	background-color: transparent;
+	border-radius: 0
+}
+</style>
+-->
+
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by songci. All Rights Reserved.			       	
+			
+			
+			<!-- busuanzi -->
+
+	<span id="busuanzi_container_page_pv">
+  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+
+
+
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+
+
+
+
+
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+    <div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;  
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      $('body').css('overflow', 'hidden');
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<!-- busuanzi -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script> 
+
+<script type="text/javascript">
+	
+		//generate a random img that pre_name 'from 0 to 110'
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+
+		//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+		var bg = 'url(https://annie-header-bg-1253939655.cos.ap-beijing.myqcloud.com/' + random_bg + '.jpg)';
+
+		$("#header-bg-2").css("background-image", bg);
+	
+</script>
+
+<!-- prrity code -->
+<link rel="stylesheet" href="/highlight/doxy.css" type="text/css">
+<script src="/highlight/prettify.js"></script>
+<script type="text/javascript">
+	$(window).load(function() {
+		$('pre').addClass('prettyprint linenums');
+		prettyPrint();
+	})
+</script>
+
+<!--prisim code-->
+<!--
+<link rel="stylesheet" href="/prismjs/prism.css" type="text/css">
+<script src="/prismjs/prism.js"></script>
+<script type="text/javascript">
+	$('pre').addClass('line-numbers');
+</script>
+-->
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		z-index: 5;
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;"  alt="TOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+	</body>
+	</html>
+
+
+
