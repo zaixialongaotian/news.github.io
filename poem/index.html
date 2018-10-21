@@ -1,0 +1,128 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	
+	<!DOCTYPE html>
+<html>
+
+<head>
+	<title>词句</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="songci">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<link rel="stylesheet" href="/poem/poem.css">
+	
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<!--Preloader-->
+	<div id="preloader">
+		<div class="pre-container">
+			<div class="spinner">
+				<div class="double-bounce1"></div>
+				<div class="double-bounce2"></div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Main-->
+	<div id="container">
+		<div class="section">
+			<div class="poem-container">
+				<div class="poem-content">
+					妈妈说：男儿温文尔雅，兼取牧马天下。
+				</div>
+				<div class="poem-date-center">
+					二零一八年十月，十五日
+				</div>
+			</div>
+			<div  class="tobuttom">		
+				<a href="javascript: $.fn.switchPage.moveSectionDown();">
+                  	<i class="fa fa-angle-double-down" aria-hidden="true"></i>
+             	</a>
+             	<p>Sariay的博客站&nbsp;&nbsp;|&nbsp;一些有趣的句子</p>
+			</div>			
+		</div>
+		<div class="section">
+			<div class="poem-container">
+				<div class="poem-content">
+					世界荆棘，无路可逃<br>
+				</div>
+				<div class="poem-date">
+					二零一八年十月，八日
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="poem-container">
+				<div class="poem-content">
+					越过山丘，无人爱<br>
+					越过江河，独一人
+				</div>
+				<div class="poem-date">
+					二零一八年九月，八日
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="poem-container">
+				<div class="poem-content">
+					你是我温暖的手套<br>
+					冰冷的啤酒<br>
+					带着阳光味道的衬衫<br>
+					日复一日的梦想
+				</div>
+				<div class="poem-date">
+					二零一八年八月，八日
+					
+				</div>
+			</div>
+			<div class="totop">		
+				<a href="javascript: $.fn.switchPage.moveSectionDown();">
+                   <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                </a>
+			</div>
+		</div>
+	</div>
+
+	<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/poem/switchPage.js"></script>
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			$('#status').fadeOut();
+			$('#preloader').delay(550).fadeOut('slow');
+			$('body').delay(550).css({
+				'overflow': 'visible'
+			});
+		});
+		
+		//灵感来源：https://leaferx.online/sentence/
+		//js插件来源：http://www.htmleaf.com/jQuery/Layout-Interface/201605213498.html
+		$(function() {
+			$("#container").switchPage({
+				'easing': 'ease-out', //ease-in, ease-out, ease, linear
+				'duration': '500',
+				'pagination': 'true',
+				'loop': true,
+				'keyboard': true,
+				'direction': 'vertical', //vertical, horizontal
+			});
+		});
+	</script>
+</body>
+
+</html>
+
+
+
